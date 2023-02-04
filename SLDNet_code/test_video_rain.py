@@ -12,7 +12,7 @@ from utils import *
 import torch.nn.functional as F
 
 ### custom lib
-from networks.resample2d_package.modules.resample2d import Resample2d
+from networks.resample2d_package.resample2d import Resample2d
 import networks
 import utils
 import matplotlib.pyplot as plt
