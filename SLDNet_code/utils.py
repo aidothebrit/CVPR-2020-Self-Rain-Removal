@@ -12,7 +12,7 @@ from torch import nn
 from loss import *
 
 ### custom lib
-from networks.resample2d_package.modules.resample2d import Resample2d
+from networks.resample2d_package.resample2d import Resample2d
 
 FLO_TAG = 202021.25
 EPS = 1e-12
