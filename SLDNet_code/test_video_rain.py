@@ -111,21 +111,21 @@ if __name__ == "__main__":
         if not os.path.isdir(output_dir):
             os.makedirs(output_dir)
 
-        frame_list = glob.glob(os.path.join(input_dir, "*.jpg"))
-        output_list = glob.glob(os.path.join(output_dir, "*.jpg"))
+        frame_list = glob.glob(os.path.join(input_dir, "*.png"))
+        output_list = glob.glob(os.path.join(output_dir, "*.png"))
 
         if len(frame_list) == len(output_list) and not opts.redo:
             print("Output frames exist, skip...")
             continue
 
         for t in range(1+3, len(frame_list)-3):
-            frame_i0 = utils.read_img(os.path.join(input_dir, "%05d.jpg" % (t-3)))
-            frame_i1 = utils.read_img(os.path.join(input_dir, "%05d.jpg" % (t-2)))
-            frame_i2 = utils.read_img(os.path.join(input_dir, "%05d.jpg" % (t-1)))
-            frame_i3 = utils.read_img(os.path.join(input_dir, "%05d.jpg" % (t)))
-            frame_i4 = utils.read_img(os.path.join(input_dir, "%05d.jpg" % (t+1)))
-            frame_i5 = utils.read_img(os.path.join(input_dir, "%05d.jpg" % (t+2)))
-            frame_i6 = utils.read_img(os.path.join(input_dir, "%05d.jpg" % (t+3)))
+            frame_i0 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-3)))
+            frame_i1 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-2)))
+            frame_i2 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-1)))
+            frame_i3 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t)))
+            frame_i4 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+1)))
+            frame_i5 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+2)))
+            frame_i6 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+3)))
 
             with torch.no_grad():
                 frame_i0 = utils.img2tensor(frame_i0).cuda()
