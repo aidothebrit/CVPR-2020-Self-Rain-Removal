@@ -283,6 +283,8 @@ class SubsetSequentialSampler(Sampler):
 
 def create_data_loader(data_set, opts, mode):
 
+    print(data_set)
+
     ### generate random index
     if mode == 'train':
         total_samples = opts.train_epoch_size * opts.batch_size
