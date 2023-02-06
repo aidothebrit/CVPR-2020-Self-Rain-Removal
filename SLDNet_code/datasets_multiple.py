@@ -69,7 +69,6 @@ class MultiFramesDataset(data.Dataset):
         frame_i = []
 
         for t in range(T+1, T + self.opts.sample_frames+1):
-            print('LOADING %05d.png' % t)
             frame_i.append(utils.read_img(os.path.join(input_dir, "%05d.png" % t)))
 
         if self.mode == 'train':
