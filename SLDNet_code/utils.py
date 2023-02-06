@@ -276,7 +276,7 @@ class SubsetSequentialSampler(Sampler):
         self.indices = indices
 
     def __iter__(self):
-        return (self.indices[i] for i in range(len(self.indices), 3))
+        return (self.indices[i] for i in range(1, len(self.indices), 3))
 
     def __len__(self):
         return len(self.indices)
