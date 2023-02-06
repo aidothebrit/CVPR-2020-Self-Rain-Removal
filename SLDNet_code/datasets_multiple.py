@@ -58,9 +58,9 @@ class MultiFramesDataset(data.Dataset):
 
 
     def __getitem__(self, index):
-
+        skip = 3
         N = self.num_frames[index]
-        T = random.randint(0, N - self.opts.sample_frames)
+        T = random.randint(0, N - (self.opts.sample_frames * skip))
 
         video = self.task_videos[index][0]
 
@@ -68,7 +68,7 @@ class MultiFramesDataset(data.Dataset):
 
         frame_i = []
 
-        for t in range(T+1, T + self.opts.sample_frames+1):
+        for t in range(T+1, T + (self.opts.sample_frames * skip)+1, skip):
             frame_i.append(utils.read_img(os.path.join(input_dir, "%05d.png" % t)))
 
         if self.mode == 'train':
