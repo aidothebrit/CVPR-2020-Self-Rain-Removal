@@ -210,6 +210,8 @@ if __name__ == "__main__":
 
     loss_fn = torch.nn.L1Loss(reduce=True, size_average=True)
 
+    print('options batch-size: %d' % opts.batch_size)
+
     while three_dim_model.epoch < opts.epoch_max:
         three_dim_model.epoch += 1
 
