@@ -14,7 +14,7 @@ opt.self_tag = 'P401_video_rain_self'
 opt.model_name = 'derain_self'
 opt.batch_size = 8
 opt.crop_size = 64
-opt.vgg_path = '/content/flownet2-pytorch/SLDNet_code/pretrained_models/vgg16-397923af.pth'
+opt.vgg_path = './pretrained_models/vgg16-397923af.pth'
 
 opt.threads = 8
 opt.input_show = False
