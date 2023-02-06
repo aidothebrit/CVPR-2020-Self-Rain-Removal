@@ -12,7 +12,7 @@ opt.test_list_filename = './lists/video_rain_removal_test.txt'
 opt.self_tag = 'P401_video_rain_self'
 
 opt.model_name = 'derain_self'
-opt.batch_size = 24
+opt.batch_size = 8
 opt.crop_size = 64
 opt.vgg_path = './pretrained_models/vgg16-397923af.pth'
 

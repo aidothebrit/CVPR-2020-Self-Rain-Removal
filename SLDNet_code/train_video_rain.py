@@ -230,6 +230,8 @@ if __name__ == "__main__":
 
             frame_i = []
 
+            print('batch-size: %d' % len(batch))
+
             for t in range(opts.sample_frames):
                 print('batch: %d' % (t*cross_num))
                 frame_i.append(batch[t * cross_num].cuda())
