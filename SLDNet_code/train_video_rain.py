@@ -210,8 +210,6 @@ if __name__ == "__main__":
 
     loss_fn = torch.nn.L1Loss(reduce=True, size_average=True)
 
-    print('options batch-size: %d' % opts.batch_size)
-
     while three_dim_model.epoch < opts.epoch_max:
         three_dim_model.epoch += 1
 
@@ -228,15 +226,13 @@ if __name__ == "__main__":
 
         for iteration, batch in enumerate(data_loader, 1):
             total_iter = (three_dim_model.epoch - 1) * opts.train_epoch_size + iteration
-            cross_num = 3
+            cross_num = 1
 
             frame_i = []
 
-            print('batch-size: %d' % len(batch))
-
             for t in range(opts.sample_frames):
-                print('batch: %d' % (t*cross_num))
-                frame_i.append(batch[t * cross_num].cuda())
+                print('batch: %d' % (t))
+                frame_i.append(batch[t].cuda())
 
             data_time = datetime.now() - ts
             ts = datetime.now()

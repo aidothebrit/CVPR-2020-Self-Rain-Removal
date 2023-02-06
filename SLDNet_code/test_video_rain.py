@@ -119,14 +119,13 @@ if __name__ == "__main__":
             continue
 
         for t in range(1+3, len(frame_list)-3):
-            cross_num = 3
-            frame_i0 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-(3*cross_num))))
-            frame_i1 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-(2*cross_num)))
-            frame_i2 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-(1*cross_num)))
+            frame_i0 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-3)))
+            frame_i1 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-2)))
+            frame_i2 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-1)))
             frame_i3 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t)))
-            frame_i4 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+(1*cross_num)))
-            frame_i5 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+(2*cross_num)))
-            frame_i6 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+(3*cross_num)))
+            frame_i4 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+1)))
+            frame_i5 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+2)))
+            frame_i6 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+3)))
 
             with torch.no_grad():
                 frame_i0 = utils.img2tensor(frame_i0).cuda()
