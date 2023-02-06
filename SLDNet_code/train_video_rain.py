@@ -226,7 +226,7 @@ if __name__ == "__main__":
 
         for iteration, batch in enumerate(data_loader, 1):
             total_iter = (three_dim_model.epoch - 1) * opts.train_epoch_size + iteration
-            cross_num = 1
+            cross_num = 3
 
             frame_i = []
 

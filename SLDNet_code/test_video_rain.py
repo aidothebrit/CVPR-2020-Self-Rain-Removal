@@ -59,10 +59,10 @@ if __name__ == "__main__":
     if opts.cuda and not torch.cuda.is_available():
         raise Exception("No GPU found, please run without -cuda")
 
-#    opts_filename = os.path.join(opts.checkpoint_dir, opts.model_name, "opts.pth")
-#    print("Load %s" % opts_filename)
-#    with open(opts_filename, 'rb') as f:
-#        model_opts = pickle.load(f)
+    opts_filename = os.path.join(opts.checkpoint_dir, opts.model_name, "opts.pth")
+    print("Load %s" % opts_filename)
+    with open(opts_filename, 'rb') as f:
+        model_opts = pickle.load(f)
 
     model_filename = os.path.join(opts.checkpoint_dir, opts.model_name, "model_epoch_%d.pth" % opts.epoch)
     print("Load %s" % model_filename)
@@ -119,13 +119,14 @@ if __name__ == "__main__":
             continue
 
         for t in range(1+3, len(frame_list)-3):
-            frame_i0 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-3)))
-            frame_i1 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-2)))
-            frame_i2 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-1)))
+            cross_num = 3
+            frame_i0 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-(3*cross_num))))
+            frame_i1 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-(2*cross_num)))
+            frame_i2 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t-(1*cross_num)))
             frame_i3 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t)))
-            frame_i4 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+1)))
-            frame_i5 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+2)))
-            frame_i6 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+3)))
+            frame_i4 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+(1*cross_num)))
+            frame_i5 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+(2*cross_num)))
+            frame_i6 = utils.read_img(os.path.join(input_dir, "%05d.png" % (t+(3*cross_num)))
 
             with torch.no_grad():
                 frame_i0 = utils.img2tensor(frame_i0).cuda()
