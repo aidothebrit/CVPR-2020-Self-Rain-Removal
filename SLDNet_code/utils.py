@@ -296,7 +296,6 @@ def create_data_loader(data_set, opts, mode):
     indices = np.random.permutation(len(data_set))
     indices = np.tile(indices, num_epochs)
     indices = indices[:total_samples]
-    print(indices)
 
     ### generate data sampler and loader
     sampler = SubsetSequentialSampler(indices)
