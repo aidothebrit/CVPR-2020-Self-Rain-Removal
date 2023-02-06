@@ -231,6 +231,7 @@ if __name__ == "__main__":
             frame_i = []
 
             for t in range(opts.sample_frames):
+                print('batch: %d' % (t*cross_num))
                 frame_i.append(batch[t * cross_num].cuda())
 
             data_time = datetime.now() - ts
