@@ -44,7 +44,7 @@ class MultiFramesDataset(data.Dataset):
             self.task_videos.append([os.path.join(video)])
 
             input_dir = os.path.join(self.opts.data_dir, self.mode, video)
-            frame_list = glob.glob(os.path.join(input_dir, '*.jpg'))
+            frame_list = glob.glob(os.path.join(input_dir, '*.png'))
 
             if len(frame_list) == 0:
                 raise Exception("No frames in %s" %input_dir)
@@ -69,7 +69,7 @@ class MultiFramesDataset(data.Dataset):
         frame_i = []
 
         for t in range(T+1, T + self.opts.sample_frames+1):
-            frame_i.append(utils.read_img(os.path.join(input_dir, "%05d.jpg" % t)))
+            frame_i.append(utils.read_img(os.path.join(input_dir, "%05d.png" % t)))
 
         if self.mode == 'train':
             if self.opts.geometry_aug:
