@@ -274,6 +274,7 @@ class SubsetSequentialSampler(Sampler):
 
     def __init__(self, indices):
         self.indices = indices
+        print(indices)
 
     def __iter__(self):
         return (self.indices[i*3] for i in range(len(self.indices)))
