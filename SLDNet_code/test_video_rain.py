@@ -59,10 +59,10 @@ if __name__ == "__main__":
     if opts.cuda and not torch.cuda.is_available():
         raise Exception("No GPU found, please run without -cuda")
 
-    opts_filename = os.path.join(opts.checkpoint_dir, opts.model_name, "opts.pth")
-    print("Load %s" % opts_filename)
-    with open(opts_filename, 'rb') as f:
-        model_opts = pickle.load(f)
+#    opts_filename = os.path.join(opts.checkpoint_dir, opts.model_name, "opts.pth")
+#    print("Load %s" % opts_filename)
+#    with open(opts_filename, 'rb') as f:
+#        model_opts = pickle.load(f)
 
     model_filename = os.path.join(opts.checkpoint_dir, opts.model_name, "model_epoch_%d.pth" % opts.epoch)
     print("Load %s" % model_filename)
